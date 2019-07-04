@@ -1,0 +1,79 @@
+.form_story {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .form__fieldset_noborder{
+        label{
+            color: $c_accent;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-right: 30px;
+        }
+        input {
+            flex-grow: 2;
+        }
+        .form__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 54px;
+            &:last-child {
+                margin-bottom: 0;
+            }      
+        }
+    }
+    .form__fieldset_app {
+        padding-left: 10%;
+        .form__item_radio {
+            margin-bottom: 35px;
+            &:last-child {
+                margin-bottom: 0;
+                }
+            }
+        @media (max-width:1000px){
+            legend {
+                max-width: 96% ;
+                white-space: normal;
+            }
+        }
+    }
+    
+    .form__fieldset_contact {
+        .form__item {
+            display: inline-block;
+            width: calc(50% - 30px);
+            vertical-align: top;
+            margin-right: 60px;
+            &:last-child {
+                margin-right: 0;
+                }
+            @media (max-width: 830px) {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 40px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                }
+            input{
+                width: 100%;
+            }
+            label {
+                margin-top: 20px;
+                padding-left: 20px;
+                display: block;
+                text-transform: uppercase;
+                font-style: 14px;
+                color: $c_accent;
+            }
+        }
+    }
+    @media (max-width: 830px) {
+        .form__fieldset_half {
+            width: 100%;
+        }
+    }
+}
+.page-conent__description {
+    text-align: center;
+}

@@ -1,0 +1,69 @@
+mixin advantages-list
+    section.advantages-list
+        .container
+            h2.advantages-list__title.h2 Устали от серости мегаполиса?<br>Нам есть, что вам предложить!
+            ul.advantages-list__list
+                +advantages-list__item('phone-1.png', 'Поднимает настроение', 'loren loren lorenlorenlorenlorenlorenlorenloren')
+                +advantages-list__item('phone-1.png', 'Поднимает настроение', 'loren loren lorenlorenlorenlorenlorenlorenloren')
+                +advantages-list__item('phone-1.png', 'Поднимает настроение', 'loren loren lorenlorenlorenlorenlorenlorenloren')
+mixin advantages-list__item(img, title, text)
+    li.advantages-list__item
+        img(src='img/' + img, alt= title)
+        h4= title
+        div= text
+
+mixin banner
+    section.banner
+        .container
+            .banner__bg
+            .banner__content
+                h2.banner__title.h2 Взгляните на жизнь иначе!
+                a.banner__btn.btn.btn_bordered(href="#") Скачать приложение
+                ul.banner__platforms
+                    each item, index in ['Aplle Store', 'Google Play', 'Microsoft Store']
+                        li: a(href='#', target= '_blank', rel='nofollow')
+                            img(src="img/platform-" + (index + 1) + ".png", alt="item")
+                .banner__description Доступно для Iphone, Ipad, Androind, Windows Phone, OS X, Windows 8 
+                
+mixin footer
+    footer.footer ФутерФутерФутер ФутерФутерФутер Футер ФутерФутер  Футер
+mixin form-story
+    form.form.form_story
+        fieldset.form__fieldset.form__fieldset_noborder.form__fieldset_half
+            legend Ваше ФИО
+            each formItem in [['surname',"Фамилия", 'Укажите фамилию'], ['name', 'Имя', 'Укажите ваше имя'], ['secondname', 'Отчество', 'Ну и Отчество тоже']]
+                .form__item
+                    label(for="input-" + formItem[0])= formItem[1]
+                    input(id='input-' + formItem[0], type="text" name= formItem[0], placeholder= formItem[2])
+       
+        fieldset.form__fieldset.form__fieldset_half.form__fieldset_app
+            legend С каким приложением вы путешествовали? 
+            each radio, index in [['ios', 'Pink для iOS'], ['android', 'Pink для android'], ['wp', 'Windows phone']]
+                .form__item.form__item_radio
+                    input(type="radio", name='travelApp', value= radio[0], id="travelApp" + (index + 1))
+                    label(for='travelApp' + (index + 1))= radio[1]
+
+        fieldset.form__fieldset.form__fieldset_contact
+            legend Контактная информация
+            .form__item.form__item_phone
+                input#input-phone(type="tel", name='phone', placeholder='+7 XXX XXX-XX-XX')
+                label(for='input-phone') Номер телефона
+
+            .form__item.form__item_email
+                input#input-email(type="email", name='email', placeholder='введите почту')
+                label(for='input-email') Адрес почты
+        .form__actions
+            input(type="submit" value="Отправить форму")
+mixin header
+    header.header
+        .container
+            a.header__logo(href='/', title='На главную')
+                img(src='img/pink-logo.png', alt='Логотип pink', width='147', height='40')
+            button.header__burger(type="button")
+            nav.header__menu
+                ul
+                    each item in ['Главная', 'Фотографии', 'Конкурс', 'itStudy']
+                        li: a(href='#')= item
+mixin page-title(title, bg)
+    -var bgImage = bg ? "img/" + bg : "img/bg_banner.jpg"
+        h1.page-title(style="background-image: url(" + bgImage + ")"): .container= title
